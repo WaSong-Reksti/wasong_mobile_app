@@ -61,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
             height: 42,
@@ -80,21 +81,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   filled: true,
                   fillColor: const Color(0xff333333),
                   prefixIcon: const Icon(Icons.search),
-                  hintText: 'Seach Classes',
+                  hintText: 'Search Classes',
                   prefixIconColor: const Color(0xfff1f1f1),
                   hintStyle: const TextStyle(color: Color(0xfff1f1f1))),
               textAlignVertical: TextAlignVertical.bottom,
               style: const TextStyle(color: Color(0xfff1f1f1)),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              "Classes For You",
-              style: TextStyle(
-                  color: Color(0xff333333),
-                  fontSize: 26,
-                  fontWeight: FontWeight.w700),
+          Container(
+            decoration: const BoxDecoration(
+                border: Border(bottom: BorderSide(color: Colors.black54))),
+            child: const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: Text(
+                "Classes For You",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color(0xff333333),
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700),
+              ),
             ),
           ),
           const Expanded(
