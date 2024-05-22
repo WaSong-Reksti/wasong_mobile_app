@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wasong_mobile_app/components/class_card.dart';
+import 'package:wasong_mobile_app/components/class_grid.dart';
 import 'package:wasong_mobile_app/components/menu_navbar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,6 +30,28 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    const List<Map<String, dynamic>> classList = [
+      {
+        "imageUrl":
+            "https://static.miraheze.org/bluearchivewiki/thumb/c/ca/Yoshimi_%28Band%29.png/399px-Yoshimi_%28Band%29.png",
+        "title": "Kelas Gitar",
+      },
+      {
+        "imageUrl":
+            "https://static.miraheze.org/bluearchivewiki/thumb/9/90/Natsu.png/399px-Natsu.png",
+        "title": "Kelas Drum",
+      },
+      {
+        "imageUrl":
+            "https://static.miraheze.org/bluearchivewiki/thumb/3/36/Kazusa_%28Band%29.png/399px-Kazusa_%28Band%29.png",
+        "title": "Kelas Bass",
+      },
+      {
+        "imageUrl":
+            "https://static.miraheze.org/bluearchivewiki/thumb/c/c5/Airi_%28Band%29.png/399px-Airi_%28Band%29.png",
+        "title": "Kelas Piano",
+      }
+    ];
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -76,6 +100,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Color(0xff333333),
                       fontSize: 26,
                       fontWeight: FontWeight.w700),
+                ),
+              ),
+              const Expanded(
+                child: ClassGrid(
+                  classInformation: classList,
+                  numberOfCols: 2,
                 ),
               ),
             ],
