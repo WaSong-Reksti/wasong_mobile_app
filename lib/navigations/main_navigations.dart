@@ -17,7 +17,7 @@ class _MainNavigationState extends State<MainNavigation> {
   // Define screens
   final List<Widget> _screens = [
     const HomeScreen(),
-    const AssignmentsScreen(),
+    AssignmentsScreen(),
     ScreenThree(),
   ];
 
