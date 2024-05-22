@@ -35,11 +35,31 @@ class _HomeScreenState extends State<HomeScreen> {
       {
         "imageUrl":
             "https://static.miraheze.org/bluearchivewiki/thumb/c/c5/Airi_%28Band%29.png/399px-Airi_%28Band%29.png",
+        "title": "Kelas Keyboard",
+      },
+      {
+        "imageUrl":
+            "https://static.miraheze.org/bluearchivewiki/thumb/b/b4/Arisu_%28Maid%29.png/399px-Arisu_%28Maid%29.png",
+        "title": "Kelas Maid",
+      },
+      {
+        "imageUrl":
+            "https://static.miraheze.org/bluearchivewiki/thumb/9/93/Hatsune_Miku.png/399px-Hatsune_Miku.png",
+        "title": "Kelas Vocaloid",
+      },
+      {
+        "imageUrl":
+            "https://static.miraheze.org/bluearchivewiki/thumb/7/7d/Rumi.png/399px-Rumi.png",
+        "title": "Kelas Memasak",
+      },
+      {
+        "imageUrl":
+            "https://static.miraheze.org/bluearchivewiki/thumb/2/20/Hina_%28Dress%29.png/399px-Hina_%28Dress%29.png",
         "title": "Kelas Piano",
-      }
+      },
     ];
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(12.0),
       child: Column(
         children: [
           SizedBox(
