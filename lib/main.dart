@@ -1,3 +1,4 @@
+import 'package:wasong_mobile_app/navigations/main_navigations.dart';
 import 'package:wasong_mobile_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: MainNavigation(),
     );
   }
 }

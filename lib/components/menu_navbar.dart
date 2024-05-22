@@ -20,7 +20,7 @@ class MenuNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.assignment),
-          label: 'Search',
+          label: 'Assignments',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
