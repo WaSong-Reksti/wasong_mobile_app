@@ -32,7 +32,7 @@ class _MainNavigationState extends State<MainNavigation> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            _screenTitles[_selectedIndex]), // Update app bar title dynamically
+            _screenTitles[_selectedIndex]),
         backgroundColor: const Color.fromRGBO(253, 248, 238, 1),
         shadowColor: const Color.fromRGBO(51, 51, 51, 0.5),
         elevation: 2.0,
@@ -49,7 +49,7 @@ class _MainNavigationState extends State<MainNavigation> {
 class ScreenOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('Home Screen'),
     );
   }
