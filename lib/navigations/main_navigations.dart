@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wasong_mobile_app/components/menu_navbar.dart';
 import 'package:wasong_mobile_app/screens/assignments_screeen.dart';
 import 'package:wasong_mobile_app/screens/home_screen.dart';
+import 'package:wasong_mobile_app/screens/profile_screen.dart';
 
 class MainNavigation extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _MainNavigationState extends State<MainNavigation> {
   final List<Widget> _screens = [
     const HomeScreen(),
     AssignmentsScreen(),
-    ScreenThree(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {

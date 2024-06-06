@@ -43,3 +43,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+.vs/ProjectSettings.json
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+.vs/wasong_mobile_app/FileContentIndex/c818a33c-4a9f-4f9d-9d11-24fa2951b039.vsidx
+.vs/wasong_mobile_app/FileContentIndex/read.lock
+.vs/wasong_mobile_app/v17/.wsuo
+.vs/wasong_mobile_app/v17/Browse.VC.db

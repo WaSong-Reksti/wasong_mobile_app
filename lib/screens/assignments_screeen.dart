@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wasong_mobile_app/models/assignment.dart';
 
 class AssignmentsScreen extends StatelessWidget {
   AssignmentsScreen({Key? key}) : super(key: key);
@@ -52,10 +53,3 @@ class AssignmentsScreen extends StatelessWidget {
   }
 }
 
-class Assignment {
-  String title;
-  String description;
-  String deadline;
-
-  Assignment(this.title, this.description, this.deadline);
-}
