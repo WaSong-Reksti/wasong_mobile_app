@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wasong_mobile_app/components/class_grid.dart';
+import 'package:wasong_mobile_app/screens/search_result_screen.dart';
 import 'package:wasong_mobile_app/utilities/dummy_data.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,6 +47,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   hintStyle: const TextStyle(color: Color(0xfff1f1f1))),
               textAlignVertical: TextAlignVertical.bottom,
               style: const TextStyle(color: Color(0xfff1f1f1)),
+              onSubmitted: (value) {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return SearchResultScreen(query: value);
+                  },
+                ));
+              },
             ),
           ),
           Container(

@@ -4,7 +4,8 @@ import 'package:wasong_mobile_app/themes/color_themes.dart';
 
 class ClassDetailScreen extends StatelessWidget {
   final Map<String, dynamic>? classInfo;
-  const ClassDetailScreen({Key? key, this.classInfo}) : super(key: key);
+  const ClassDetailScreen({Key? key, required this.classInfo})
+      : super(key: key);
 
   final String _placeholderImageUrl =
       "https://upload.wikimedia.org/wikipedia/id/9/95/Logo_Institut_Teknologi_Bandung.png";
