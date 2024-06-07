@@ -47,9 +47,8 @@ class ClassGridState extends State<ClassGrid> {
             Navigator.of(context).push(
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) {
-                  return const ClassDetailScreen(classInfo: {
-                    "imageUrl":
-                        "https://static.miraheze.org/bluearchivewiki/thumb/c/ca/Yoshimi_%28Band%29.png/399px-Yoshimi_%28Band%29.png"
+                  return ClassDetailScreen(classInfo: {
+                    "imageUrl": widget.classInformation[index]["imageUrl"]
                   }); // Navigate to ClassDetailScreen
                 },
                 transitionsBuilder:
