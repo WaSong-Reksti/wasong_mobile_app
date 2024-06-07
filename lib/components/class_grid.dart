@@ -48,7 +48,11 @@ class ClassGridState extends State<ClassGrid> {
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) {
                   return ClassDetailScreen(classInfo: {
-                    "imageUrl": widget.classInformation[index]["imageUrl"]
+                    "imageUrl": widget.classInformation[index]["imageUrl"],
+                    "title": widget.classInformation[index]["title"],
+                    "description": widget.classInformation[index]
+                        ["description"],
+                    "instrument": widget.classInformation[index]["instrument"],
                   }); // Navigate to ClassDetailScreen
                 },
                 transitionsBuilder:

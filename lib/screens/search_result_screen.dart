@@ -19,26 +19,49 @@ class SearchResultScreen extends StatelessWidget {
         elevation: 2.0,
       ),
       body: ListView.builder(
+        padding: const EdgeInsets.only(top: 8.0),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return ListTile(
-            leading: AspectRatio(
-              aspectRatio: 1.0,
-              child: Image.network(
-                "https://static.miraheze.org/bluearchivewiki/thumb/c/ca/Yoshimi_%28Band%29.png/399px-Yoshimi_%28Band%29.png",
-                fit: BoxFit.cover,
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 12.0),
+              decoration: const BoxDecoration(boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 2),
+                  color: Color.fromARGB(90, 0, 0, 0),
+                  blurRadius: 6,
+                  spreadRadius: 2,
+                )
+              ]),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Container(
+                  color: Colors.white,
+                  child: ListTile(
+                    leading: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: Image.network(
+                        "https://static.miraheze.org/bluearchivewiki/thumb/c/ca/Yoshimi_%28Band%29.png/399px-Yoshimi_%28Band%29.png",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    title: Text('Result $index'), // Replace with actual data
+                    subtitle: Text('Description for result $index'),
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return ClassDetailScreen(classInfo: const {
+                          "imageUrl":
+                              "https://static.miraheze.org/bluearchivewiki/thumb/c/ca/Yoshimi_%28Band%29.png/399px-Yoshimi_%28Band%29.png",
+                          "title": "Horas"
+                        });
+                      }));
+                    },
+                  ),
+                ),
               ),
             ),
-            title: Text('Result $index'), // Replace with actual data
-            subtitle: Text('Description for result $index'),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const ClassDetailScreen(classInfo: {
-                  "imageUrl":
-                      "https://static.miraheze.org/bluearchivewiki/thumb/c/ca/Yoshimi_%28Band%29.png/399px-Yoshimi_%28Band%29.png"
-                });
-              }));
-            },
           );
         },
         scrollDirection: Axis.vertical,
