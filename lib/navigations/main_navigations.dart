@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:wasong_mobile_app/components/menu_navbar.dart';
 import 'package:wasong_mobile_app/screens/assignments_screeen.dart';
 import 'package:wasong_mobile_app/screens/home_screen.dart';
@@ -32,7 +33,9 @@ class _MainNavigationState extends State<MainNavigation> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            _screenTitles[_selectedIndex]),
+          _screenTitles[_selectedIndex],
+          style: GoogleFonts.rubik(fontWeight: FontWeight.bold),
+        ),
         backgroundColor: const Color.fromRGBO(253, 248, 238, 1),
         shadowColor: const Color.fromRGBO(51, 51, 51, 0.5),
         elevation: 2.0,
@@ -42,24 +45,6 @@ class _MainNavigationState extends State<MainNavigation> {
         onItemTapped: _onItemTapped,
         selectedIndex: _selectedIndex,
       ),
-    );
-  }
-}
-
-class ScreenOne extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home Screen'),
-    );
-  }
-}
-
-class ScreenTwo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Search Screen'),
     );
   }
 }

@@ -31,7 +31,9 @@ class LandingScreen1 extends StatelessWidget {
                             semanticsLabel: 'My SVG Image',
                           )),
                         ),
-                        Image.asset("images/decor/landing_page_1.png")
+                        Center(
+                            child:
+                                Image.asset("images/decor/landing_page_1.png"))
                       ]),
                     ],
                   ),
@@ -62,8 +64,23 @@ class LandingScreen1 extends StatelessWidget {
                       onPressed: () => {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const LandingScreen2()),
+                          PageRouteBuilder(pageBuilder:
+                              (context, animation, secondaryAnimation) {
+                            return const LandingScreen2();
+                          }, transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            var begin = const Offset(1.0, 0.0);
+                            var end = Offset.zero;
+                            var curve = Curves.ease;
+                            var tween = Tween(begin: begin, end: end)
+                                .chain(CurveTween(curve: curve));
+                            var offsetAnimation = animation.drive(tween);
+
+                            return SlideTransition(
+                              position: offsetAnimation,
+                              child: child,
+                            );
+                          }),
                         )
                       },
                       style: ButtonStyle(
@@ -95,7 +112,7 @@ class LandingScreen2 extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 20.0),
+          padding: const EdgeInsets.only(bottom: 10.0),
           child: Container(
             color: WasongColorThemes.yellowPale,
             child: Column(
@@ -114,7 +131,9 @@ class LandingScreen2 extends StatelessWidget {
                             semanticsLabel: 'My SVG Image',
                           )),
                         ),
-                        Image.asset("images/decor/landing_page_2.png")
+                        Center(
+                            child:
+                                Image.asset("images/decor/landing_page_2.png"))
                       ]),
                     ],
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wasong_mobile_app/components/class_grid.dart';
+import 'package:wasong_mobile_app/utilities/dummy_data.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,48 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const List<Map<String, dynamic>> classList = [
-      {
-        "imageUrl":
-            "https://static.miraheze.org/bluearchivewiki/thumb/c/ca/Yoshimi_%28Band%29.png/399px-Yoshimi_%28Band%29.png",
-        "title": "Kelas Gitar",
-      },
-      {
-        "imageUrl":
-            "https://static.miraheze.org/bluearchivewiki/thumb/9/90/Natsu.png/399px-Natsu.png",
-        "title": "Kelas Drum",
-      },
-      {
-        "imageUrl":
-            "https://static.miraheze.org/bluearchivewiki/thumb/3/36/Kazusa_%28Band%29.png/399px-Kazusa_%28Band%29.png",
-        "title": "Kelas Bass",
-      },
-      {
-        "imageUrl":
-            "https://static.miraheze.org/bluearchivewiki/thumb/c/c5/Airi_%28Band%29.png/399px-Airi_%28Band%29.png",
-        "title": "Kelas Keyboard",
-      },
-      {
-        "imageUrl":
-            "https://static.miraheze.org/bluearchivewiki/thumb/b/b4/Arisu_%28Maid%29.png/399px-Arisu_%28Maid%29.png",
-        "title": "Kelas Maid",
-      },
-      {
-        "imageUrl":
-            "https://static.miraheze.org/bluearchivewiki/thumb/9/93/Hatsune_Miku.png/399px-Hatsune_Miku.png",
-        "title": "Kelas Vocaloid",
-      },
-      {
-        "imageUrl":
-            "https://static.miraheze.org/bluearchivewiki/thumb/7/7d/Rumi.png/399px-Rumi.png",
-        "title": "Kelas Memasak",
-      },
-      {
-        "imageUrl":
-            "https://static.miraheze.org/bluearchivewiki/thumb/2/20/Hina_%28Dress%29.png/399px-Hina_%28Dress%29.png",
-        "title": "Kelas Piano",
-      },
-    ];
+    const List<Map<String, dynamic>> classList = DummyData.classesData;
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Column(
