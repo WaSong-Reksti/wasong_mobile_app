@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wasong_mobile_app/navigations/main_navigations.dart';
+import 'package:wasong_mobile_app/screens/login_screen.dart';
 import 'package:wasong_mobile_app/themes/color_themes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -172,7 +173,7 @@ class LandingScreen2 extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MainNavigation()),
+                              builder: (context) => const LoginScreen()),
                         )
                       },
                       style: ButtonStyle(
