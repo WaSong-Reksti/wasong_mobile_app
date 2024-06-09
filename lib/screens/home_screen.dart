@@ -14,33 +14,31 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String user = "Toper";
   String searchQuery = "";
+  TextEditingController _searchController = TextEditingController();
 
   // Daftar widget untuk setiap tab
-  late Future<dynamic> session = CrudHandlers.getSession();
-  late Future<dynamic> classesData = CrudHandlers.getClasses();
+  late Future<dynamic> session;
+  late Future<dynamic> classesData;
 
   @override
   void initState() {
     super.initState();
+    _searchController = TextEditingController(text: searchQuery);
     session = CrudHandlers.getSession();
     classesData = CrudHandlers.getClasses();
   }
 
   @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FutureBuilder<dynamic>(
-        future: Future.wait(Iterable<Future<dynamic>>.generate(2, (index) {
-          switch (index) {
-            case 0:
-              return classesData;
-            case 1:
-              return session;
-            default:
-              throw Exception('Invalid index: $index');
-          }
-        })),
+        future: classesData,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
@@ -59,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             }
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
-            final List<dynamic> dataList = snapshot.data![0] as List<dynamic>;
+            final List<dynamic> dataList = snapshot.data! as List<dynamic>;
             final classList =
                 dataList.map((item) => item as Map<String, dynamic>).toList();
             if (kDebugMode) {
@@ -74,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 42,
                     // alignment: Alignment.bottomCenter,
                     child: TextField(
+                      controller: _searchController,
                       onChanged: (text) {
                         setState(() {
                           searchQuery = text;

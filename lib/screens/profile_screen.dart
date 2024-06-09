@@ -78,6 +78,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
+            if (snapshot.error
+                .toString()
+                .contains('Token revoked or expired')) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) {
+                  return const LoginScreen();
+                }));
+              });
+            }
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
             final userData = snapshot.data!;
