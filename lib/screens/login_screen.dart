@@ -1,7 +1,11 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wasong_mobile_app/navigations/main_navigations.dart';
 import 'package:wasong_mobile_app/screens/home_screen.dart';
+import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -13,6 +17,31 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   String _email = "";
   String _password = "";
+
+  Future<void> _login() async {
+    final url = Uri.parse('http://localhost:8080/api/login');
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'email': _email,
+        'password': _password,
+      }),
+    );
+    if (!mounted) return;
+    if (response.statusCode == 200) {
+      // Handle successful login
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+        return MainNavigation();
+      }));
+    } else {
+      // Handle login failure
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Login failed')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 margin: const EdgeInsets.only(bottom: 12.0),
@@ -69,12 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return MainNavigation();
-                        }));
-                      },
+                      onPressed: _login,
                       style: ButtonStyle(
                         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
