@@ -9,12 +9,12 @@ class ClassDetailScreen extends StatelessWidget {
 
   final Map<String, dynamic> _placeholder = {
     "imageUrl":
-        "https://upload.wikimedia.org/wikipedia/id/9/95/Logo_Institut_Teknologi_Bandung.png",
-    "title": "Horas",
-    "description": "GALVANIZED SQUARED STEEL",
-    "instrument": "Mayones",
-    "instructor": "Mang",
-    "schedule": "Kumaha Anjeun",
+        "https://i.pinimg.com/236x/f2/2b/f8/f22bf81d5d7b42a3bb83a9ab020242df.jpg",
+    "Name": "Horas",
+    "Description": "GALVANIZED SQUARED STEEL",
+    "Instrument": "Mayones",
+    "Instructor": "Mang",
+    "Schedule": "Kumaha Anjeun",
   };
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class ClassDetailScreen extends StatelessWidget {
                         width: 100,
                         height: 100,
                         child: Image.network(
-                          classInfo != null
+                          classInfo?["imageUrl"] != null
                               ? classInfo!["imageUrl"]
                               : _placeholder["imageUrl"],
                           fit: BoxFit.cover,
@@ -65,18 +65,18 @@ class ClassDetailScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              classInfo?["title"] ?? _placeholder["title"],
+                              classInfo?["Name"] ?? _placeholder["Name"],
                               style: GoogleFonts.rubik(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                             Text(
-                              classInfo?["instructor"] ??
-                                  _placeholder["instructor"],
+                              classInfo?["Instructor"] ??
+                                  _placeholder["Instructor"],
                               style: GoogleFonts.rubik(fontSize: 15),
                             ),
                             Text(
-                              classInfo?["instrument"] ??
-                                  _placeholder["instrument"],
+                              classInfo?["Instrument"] ??
+                                  _placeholder["Instrument"],
                               style: GoogleFonts.rubik(fontSize: 15),
                             ),
                           ],
@@ -89,15 +89,15 @@ class ClassDetailScreen extends StatelessWidget {
                   ),
                   TitleAndSubtitle(
                       title: "Description",
-                      subtitle: classInfo?["description"] ??
-                          _placeholder["description"]),
+                      subtitle: classInfo?["Description"] ??
+                          _placeholder["Description"]),
                   const SizedBox(
                     height: 25,
                   ),
                   TitleAndSubtitle(
                       title: "Schedule",
                       subtitle:
-                          classInfo?["schedule"] ?? _placeholder["schedule"]),
+                          classInfo?["Schedule"] ?? _placeholder["Schedule"]),
                   const SizedBox(
                     height: 25,
                   ),

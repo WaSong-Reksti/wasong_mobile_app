@@ -49,10 +49,10 @@ class ClassGridState extends State<ClassGrid> {
                 pageBuilder: (context, animation, secondaryAnimation) {
                   return ClassDetailScreen(classInfo: {
                     "imageUrl": widget.classInformation[index]["imageUrl"],
-                    "title": widget.classInformation[index]["title"],
-                    "description": widget.classInformation[index]
-                        ["description"],
-                    "instrument": widget.classInformation[index]["instrument"],
+                    "Name": widget.classInformation[index]["Name"],
+                    "Description": widget.classInformation[index]
+                        ["Description"],
+                    "Instrument": widget.classInformation[index]["Instrument"],
                   }); // Navigate to ClassDetailScreen
                 },
                 transitionsBuilder:
@@ -71,8 +71,9 @@ class ClassGridState extends State<ClassGrid> {
             child: Transform.scale(
               scale: scale,
               child: ClassCard(
-                imageUrl: item["imageUrl"].toString(),
-                title: item["title"].toString(),
+                imageUrl: item["imageUrl"] ??
+                    "https://i.pinimg.com/236x/f2/2b/f8/f22bf81d5d7b42a3bb83a9ab020242df.jpg",
+                title: item["Name"].toString(),
               ),
             ),
           ),

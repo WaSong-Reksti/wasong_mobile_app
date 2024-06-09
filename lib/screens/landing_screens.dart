@@ -1,12 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasong_mobile_app/navigations/main_navigations.dart';
 import 'package:wasong_mobile_app/screens/login_screen.dart';
 import 'package:wasong_mobile_app/themes/color_themes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LandingScreen1 extends StatelessWidget {
+class LandingScreen1 extends StatefulWidget {
   const LandingScreen1({Key? key}) : super(key: key);
+
+  @override
+  State<LandingScreen1> createState() => _LandingScreen1State();
+}
+
+class _LandingScreen1State extends State<LandingScreen1> {
+  @override
+  void initState() {
+    super.initState();
+    checkSessionAndNavigate();
+  }
+
+  Future<void> checkSessionAndNavigate() async {
+    final prefs = await SharedPreferences.getInstance();
+    final hasSession = prefs.containsKey('token');
+    if (hasSession) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => MainNavigation()),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

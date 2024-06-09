@@ -3,9 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasong_mobile_app/navigations/main_navigations.dart';
 import 'package:wasong_mobile_app/screens/home_screen.dart';
 import 'package:http/http.dart' as http;
+import 'package:wasong_mobile_app/screens/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -19,7 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
   String _password = "";
 
   Future<void> _login() async {
-    final url = Uri.parse('http://localhost:8080/api/login');
+    final url =
+        Uri.parse('https://c719-114-122-106-87.ngrok-free.app/api/login');
     final response = await http.post(
       url,
       headers: {'Content-Type': 'application/json'},
@@ -31,6 +34,14 @@ class _LoginScreenState extends State<LoginScreen> {
     if (!mounted) return;
     if (response.statusCode == 200) {
       // Handle successful login
+      final responseBody = jsonDecode(response.body);
+      final token = responseBody['idToken'];
+
+      // Save the token to shared preferences
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('token', token);
+
+      if (!mounted) return;
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return MainNavigation();
       }));
@@ -135,7 +146,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     alignment: PlaceholderAlignment.middle,
                     child: TextButton(
                       onPressed: () {
-                        // Add your register action here
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const RegisterScreen();
+                        }));
                       },
                       style: TextButton.styleFrom(padding: EdgeInsets.zero),
                       child: Text(

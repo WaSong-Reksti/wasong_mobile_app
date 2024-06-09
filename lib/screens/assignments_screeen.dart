@@ -14,9 +14,12 @@ class AssignmentsScreen extends StatefulWidget {
 
 class _AssignmentsScreenState extends State<AssignmentsScreen> {
   final List<Assignment> assignments = [
-    Assignment("Jokowi", "3 Periode", "2029", true),
-    Assignment("Prabowo", "Makan Siang Gratis", "2029", true),
-    Assignment("Heru Budi", "Jakarta Tenggelam 2030", "2030", false)
+    Assignment(
+        "Sweet Child O'Mine", "Mainkan intro Sweet Child O'Mine", "2029", true),
+    Assignment(
+        "Tugas 1 - Skibidi Toilet", "Skibidi Toilet in Cmajor7", "2029", true),
+    Assignment("Tugas 69 - Ibu Kita Kartini",
+        "Mainkan Ibu kita kartini pakai kaki, sampe jago", "2030", false)
   ];
 
   int _selectedIndex = 0;
@@ -50,7 +53,7 @@ class _AssignmentsScreenState extends State<AssignmentsScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Berlangsung",
+                    "Ongoing",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.rubik(
                         color: _selectedIndex == 0
@@ -81,7 +84,7 @@ class _AssignmentsScreenState extends State<AssignmentsScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Selesai",
+                    "Done",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.rubik(
                         color: _selectedIndex == 1
